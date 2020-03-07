@@ -1,0 +1,58 @@
+<html>
+<header>
+    <style>
+        body {
+            background-color: darkslateblue;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        h1 {
+            color: white;
+        }
+
+        h1::after {
+            content: '|';
+            animation: blink .6s infinite;
+        }
+
+        #container {
+            width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+
+</header>
+
+<body>
+    <div id="container">
+        <h1>Este é um exemplo de digitação como máquina de escrever.</h1>
+    </div>
+
+    <script>
+
+        function typeWritter(elemento) {
+            let letras = elemento.innerHTML.split('');
+            elemento.innerHTML = '';
+            letras.forEach((letra, i) => {
+                setTimeout(() => elemento.innerHTML += letra, 75*i);
+            });
+        };
+
+        let texto = document.querySelector('h1');
+
+        typeWritter(texto);
+    </script>
+</body>
+
+</html>
